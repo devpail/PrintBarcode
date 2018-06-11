@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>条码打印</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/layui-v2.3.0/layui/css/layui.css}"  />
+
+</head>
+<body>
+
+    <div class="layui-container">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+            <legend>参数设置</legend>
+        </fieldset>
+
+        <form class="layui-form" th:action="@{/generateCode}">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">初始编号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="startNumber" th:value="${codeParam.startNumber}" lay-verify="required|number" class="layui-input" />
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">编号位数</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="length" th:value="${codeParam.length}" lay-verify="required|number" class="layui-input" />
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">上边距</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="paddingTop" th:value="${codeParam.paddingTop}" lay-verify="required|number" class="layui-input" />
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">下边距</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="paddingBottom" th:value="${codeParam.paddingBottom}" lay-verify="required|number" class="layui-input" />
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">左边距</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="paddingLeft" th:value="${codeParam.paddingLeft}" lay-verify="required|number" class="layui-input" />
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">右边距</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="paddingRight" th:value="${codeParam.paddingRight}" lay-verify="required|number" class="layui-input" />
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">行数</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="rows" th:value="${codeParam.rows}" lay-verify="required|number" class="layui-input" />
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">列数</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="columns" th:value="${codeParam.columns}" lay-verify="required|number" class="layui-input" />
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">行间距</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="spaceRow" th:value="${codeParam.spaceRow}" lay-verify="required|number" class="layui-input" />
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">列间距</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="spaceColumn" th:value="${codeParam.spaceColumn}" lay-verify="required|number" class="layui-input" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">条形码长度</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="codeWidth" th:value="${codeParam.codeWidth}" lay-verify="required|number" class="layui-input" />
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">条形码宽度</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="codeHeight" th:value="${codeParam.codeHeight}" lay-verify="required|number" class="layui-input" />
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit="" lay-filter="demo1">生成</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script  th:src="@{/layui-v2.3.0/layui/layui.js}"></script>
+    <script>
+        layui.use(['form', 'layedit', 'laydate'], function(){
+            var form = layui.form;
+
+            //监听提交
+            form.on('submit(demo1)', function(data){
+
+            });
+
+        });
+    </script>
+</body>
+</html>
